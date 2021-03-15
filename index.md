@@ -65,10 +65,11 @@ $ sudo -u postgres psql -U postgres (master user)
 # CREATE DATABASE dvdrental;// create a database in the same name of the database sample
 # GRANT ALL PRIVILEGES ON DATABASE dvdrental TO root; //Permission access for root to dvdrental
 </code></pre>
+
 <p>Lets access the new database with the role root</p>
 <pre><code>
-$ psql <database><rolename>
-$ psql dvdrental root
+# psql <database><rolename>
+# psql dvdrental root
 </code></pre>
 
 <p>Cool, you are in
