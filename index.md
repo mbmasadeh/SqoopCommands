@@ -68,7 +68,7 @@ $ sudo -u postgres psql -U postgres (master user)
 
 <p>Lets access the new database with the role root</p>
 <pre><code>
-# psql <database><rolename>
+# psql "database" "rolename"
 # psql dvdrental root
 </code></pre>
 
