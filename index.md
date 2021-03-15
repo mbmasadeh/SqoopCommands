@@ -1,4 +1,14 @@
-## Welcome to GitHub Pages
+## How to ETL* a structured data from PostgreSQL to HDFS
+<h3>First of all we need to create a three machines over Windows Hyper-V (Must set the RAM to be Fixed). You can make all of them physically if you have an enough resources.</h3>
+
+<ul>The first one is holding Namenode (At least 12 GB of RAM and 40 HDD/SSD).</ul>
+<ul>The second one is hodling the Datanode1 (Is Slave1), (At least 10 GB of RAM and 40 HDD/SSD).</ul>
+<ul>Both of the first server and second server will run these ecosystems (HDFS, YARN, Mapreduce, Hive, HBase and Sqoop).</ul>
+<ul>The third server is running a database engine, in our example for today it's gonna be PostgreSql 10 (At least 6 GB of RAM and 20 HDD/SSD)</ul>
+<ul>All the machines are running CentOS based 7.X</ul>
+
+
+
 
 You can use the [editor on GitHub](https://github.com/mbmasadeh/SqoopCommands/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
