@@ -64,7 +64,6 @@ $ sudo -u postgres psql -U postgres (master user)
 # CREATE ROLE root LOGIN;//the name of the ROLE is root without password
 # CREATE DATABASE dvdrental;// create a database in the same name of the database sample
 # GRANT ALL PRIVILEGES ON DATABASE dvdrental TO root; //Permission access for root to dvdrental
-\q
 </code></pre>
 <p>Lets access the new database with the role root</p>
 <pre><code>
@@ -119,5 +118,32 @@ $ psql dvdrental root
 <p>Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
 example its Slave1 (the second server)</p>
 
-<p>In the database server we need to open it for all connections (its not recomended for production manner)</p> 
-192.168.1.100/24
+<p>In the database server we need to open it for all connections (its not recomended for the production manner)</p> 
+<p>In the database server, paste this command to open pg_hba.conf file in order to allow some access permissions</p>
+<pre><code>
+vim /var/lib/pgsql/10/data/pg_hba.conf
+</code></pre>
+
+<p>Navigate to the end of the file to allow server "Slave1" to access this server.</p>
+<p>You have the option to allow all servers to access this server, or allow only the servers you want</p>
+<p>In the "IPv6 local connections" add this line</p>
+<p> host  all   all   <slave1 ip address>/<port>  Trust</p>
+<p>close the editor by press Esc then :wq then enter<p/>
+<p>One more file to edit it before run the sqoop command is "postresql.conf</p>
+<p>Paste this command</p>
+  <pre><code>
+  vim /var/lib/pgsql/10/data/postgresql.conf
+  </code></pre>
+  <p>Find this section "Listen_addresses" and make it equal '*'</p>
+  <p>close the file and restart PostgreSQL 10</p>
+## Slave1 Sqoop
+  <p>You must ensure about the server whom running Sqoop ecosystem, in this example its Slave1</p>
+  <p>
+    Now its the time for sqoop, run this command to get the table name "actor" to HDFS
+  </p>
+   <pre><code>
+   sqoop import --connect jdbc:postgresql://<Database server IP>/dvdrental --username root --password <the password> --table actor -m 1
+    </code></pre>
+
+
+## Done
