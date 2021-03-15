@@ -65,12 +65,12 @@ $ sudo -u postgres psql -U postgres (master user)
 # CREATE DATABASE dvdrental;// create a database in the same name of the database sample
 # GRANT ALL PRIVILEGES ON DATABASE dvdrental TO root; //Permission access for root to dvdrental
 \q
-</pre></code>
+</code></pre>
 <p>Lets access the new database with the role root</p>
 <pre><code>
 $ psql <database><rolename>
 $ psql dvdrental root
-</pre></code>
+</code></pre>
 
 <p>Cool, you are in
 to exit press \q</p>
@@ -80,81 +80,44 @@ We will download the desired file into a pre-created directory using wget comman
 lets first create the directory:</p>
 <pre><code>
 $ mkdir /etc/downloads 
-</pre></code>
+</code></pre>
 <p>Navigate to this new directory</p>
 <pre><code>
 $ cd /etc/downloads
-</pre></code>
+</code></pre>
 
 <p>Get the database sample to this directory
 Navigate to this site to download the sample</p>
 <pre><code>
 $ wget -c https://sp.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip 
-</pre></code>
+</code></pre>
 <p>If the command is not found, then install wget packege</p>
 <pre><code>
 $ yum -y install wget
-</pre></code>
+</code></pre>
 
 <p>Greate !!, the downloaded file extention is .zip, we need to extract it.
 Lets download zipping tools</p>
 <pre><code>
 $ sudo yum install unzip
-</pre></code>
+</code></pre>
 <p>While you are in the target dir, just write this command with the file name</p>
 <pre><code>
 $ unzip dvdrental.zip
-</pre></code>
+</code></pre>
 
 <p>Good, now the new unzipping file is dvdrental.tar, the database is ready to host the sample</p>
 <pre><code>
 $ pg_restore -U root -d dvdrental /etc/downloads/dvdrental.tar
-</pre></code>
+</code></pre>
 <p>Thats it for downloading the sample, to check the sample</p>
 <pre><code>
 $ psql dvdrental root
 > \dt //List all tables.
-</pre></code>
-================================================
-Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
-example its Slave1 (the second server)
+</code></pre>
 
-In the database server we need to open it for all connections (its not recomended for production manner) 
+<p>Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
+example its Slave1 (the second server)</p>
+
+<p>In the database server we need to open it for all connections (its not recomended for production manner)</p> 
 192.168.1.100/24
-
-
-You can use the [editor on GitHub](https://github.com/mbmasadeh/SqoopCommands/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mbmasadeh/SqoopCommands/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
