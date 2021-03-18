@@ -58,6 +58,7 @@ Note: Later you can use this command to Stop and restart PostgreSQL 10 services:
 <p>Now PostgreSQL 10 is installed successfully</p>
 <p>As our example is to ELT data from PostgreSQL to HDFS, we need to download a sample database with tables and relation to PostgreSQL
 The data sample must be build in the system before getting extract.</p>
+
 ## To access PostgreSQl and allow our user "root" access, follow the following:
 <pre><code>
 $ sudo -u postgres psql -U postgres (master user)
@@ -137,6 +138,7 @@ vim /var/lib/pgsql/10/data/pg_hba.conf
   </code></pre>
   <p>Find this section "Listen_addresses" and make it equal '*'</p>
   <p>close the file and restart PostgreSQL 10</p>
+  
 ## Slave1 Sqoop
   <p>You must ensure about the server whom running Sqoop ecosystem, in this example its Slave1</p>
   <p>
@@ -145,6 +147,5 @@ vim /var/lib/pgsql/10/data/pg_hba.conf
    <pre><code>
    sqoop import --connect jdbc:postgresql://"Database server IP"/dvdrental --username root --password "the password" --table actor -m 1
     </code></pre>
-
 
 ## Done
