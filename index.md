@@ -114,7 +114,7 @@ $ pg_restore -U root -d dvdrental /etc/downloads/dvdrental.tar
 <p>Thats it for downloading the sample, to check the sample</p>
 <pre><code>
 $ psql dvdrental root
-> \dt //List all tables.
+ \dt //List all tables.
 </code></pre>
 
 <p>Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
