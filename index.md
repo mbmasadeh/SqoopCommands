@@ -11,7 +11,7 @@ You can make all of them as a physical machines if you have an enough resources.
 <li>All the machines are running CentOS based 7.X </li>
 </ul>
   </div>
-</br>
+
 <h3>To install Hadoop, follow this link</h3>
 <a href="">( https://...)<a> 
 <p>Now by installing hadoop, both of server one and server two are ready with all components including Sqoop (which is our core subject in this project).</p>
@@ -143,7 +143,7 @@ vim /var/lib/pgsql/10/data/pg_hba.conf
     Now its the time for sqoop, run this command to get the table name "actor" to HDFS
   </p>
    <pre><code>
-   sqoop import --connect jdbc:postgresql://<Database server IP>/dvdrental --username root --password <the password> --table actor -m 1
+   sqoop import --connect jdbc:postgresql://"Database server IP"/dvdrental --username root --password "the password" --table actor -m 1
     </code></pre>
 
 
