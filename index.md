@@ -1,4 +1,4 @@
-## How to ETL* a structured data from PostgreSQL to HDFS
+## How to ETL a structured data from PostgreSQL to HDFS
 <h3>First of all we need to create a three machines over Windows Hyper-V</h3> 
 (Must set the RAM to be Fixed in the memory choice). 
 You can make all of them as a physical machines if you have an enough resources.
@@ -28,7 +28,7 @@ the old version must un-install (completely) from the system. </p>
 <pre><code>
 # yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y
 </code></pre>
-<p>Note: if you have any other repository, you can use it instead <p>
+<p>Note: if you have any other repository, you can use it instead </p>
 
 ## Step 2: Install PostgreSQL 10
 <pre><code>
