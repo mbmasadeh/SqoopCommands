@@ -1,14 +1,21 @@
-## How to ETL a structured data from PostgreSQL to HDFS
-<h3>First of all we need to create a three machines over Windows Hyper-V</h3> 
-(Must set the RAM to be Fixed in the memory choice). 
-You can make all of them as a physical machines if you have an enough resources.
+## How to ELT a structured data from PostgreSQL to HDFS
+<h4>Prerequisites, Hardware requirements</h4>
+<ul>
+  <li>Create a three V-Machines over Windows Hyper-V</li>
+  <p>Must set the every machine RAM to "Fixed" in the memory Tab</p>
+  <li>The installed OS is CentOS based 7.5 for all machines</li>
+  <ls>xxx</ls>
+  <li></li>
+</ul>
+<h3></h3> 
+
 <div>
 <ul>
 <li>The first one is holding Namenode (At least 12 GB of RAM and 40 HDD/SSD).</li>
 <li>The second one is hodling the Datanode1 (Is Slave1), (At least 10 GB of RAM and 40 HDD/SSD).</li>
 <li>Both of the first server and second server will run these ecosystems (HDFS, YARN, Mapreduce, Hive, HBase and Sqoop).</li>
 <li>The third server is running a database engine, in our example for today it's gonna be PostgreSql 10 (At least 6 GB of RAM and 20 HDD/SSD)</li>
-<li>All the machines are running CentOS based 7.X </li>
+
 </ul>
   </div>
 
