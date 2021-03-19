@@ -26,23 +26,23 @@ the old version must un-install (completely) from the system. </p>
 # yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y
 </code></pre>
 <p>Note: if you have any other repository, you can use it instead </p>
-
+ 
 ## Step 2: Install PostgreSQL 10
 <pre><code>
 # yum install postgresql10 postgresql10-server postgresql10-contrib postgresql10-libs -y
 </code></pre>
-
+ 
 ## Step 3: Initialize PostgreSQL
 <pre><code>
 # /usr/pgsql-10/bin/postgresql-10-setup initdb
 </code></pre>
-
+ 
 ## Step 4: Enable and Start PostgreSQL 10
 <pre><code>
 # systemctl enable postgresql-10.service
 # systemctl start postgresql-10.service
 </code></pre>
-
+ 
 Note: Later you can use this command to Stop and restart PostgreSQL 10 services:
 <pre><code>
 # systemctl stop postgresql-10.service
@@ -51,11 +51,11 @@ Note: Later you can use this command to Stop and restart PostgreSQL 10 services:
 <pre><code>
 # systemctl start postgresql-10.service
 </code></pre>
-
+ 
 <p>Now PostgreSQL 10 is installed successfully</p>
 <p>As our example is to ELT data from PostgreSQL to HDFS, we need to download a sample database with tables and relation to PostgreSQL
 The data sample must be build in the system before getting extract.</p>
-
+ 
 ## To access PostgreSQl and allow our user "root" access, follow the following:
 <pre><code>
 $ sudo -u postgres psql -U postgres (master user)
@@ -120,7 +120,8 @@ $ psql dvdrental root
 
 <p>Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
 example its Slave1 (the second server)</p>
-## Setup the DB configuration to accept remote connection
+
+<h4>Setup the DB configuration to accept remote connection</h4>
 
 <p>In the database server we need to open it for all connections (its not recomended for the production manner)</p> 
 <p>In the database server, paste this command to open pg_hba.conf file in order to allow some access permissions</p>
@@ -141,7 +142,7 @@ vim /var/lib/pgsql/10/data/pg_hba.conf
   <p>Find this section "Listen_addresses" and make it equal '*'</p>
   <p>close the file and restart PostgreSQL 10</p>
   
-## Slave1 Sqoop
+<h4>Slave1 Sqoop</h4>
   <p>You must ensure about the server whom running Sqoop ecosystem, in this example its Slave1</p>
   <p>
     Now its the time for sqoop, run this command to get the table name "actor" to HDFS
