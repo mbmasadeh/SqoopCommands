@@ -2,32 +2,22 @@
 <h4>Prerequisites, Hardware requirements</h4>
 <ul>
   <li>Create a three V-Machines over Windows Hyper-V</li>
-  <p>Must set the every machine RAM to "Fixed" in the memory Tab</p>
+  <p>Note: Must set the every machine RAM to "Fixed" in the memory Tab</p>
   <li>The installed OS is CentOS based 7.5 for all machines</li>
-  <ls>xxx</ls>
-  <li></li>
+  <ll>The first machine is holding Namenode (At least 12 GB of RAM and 40 HDD/SSD).</li>
+  <li>The second one is hodling the Datanode1 (Is Slave1), (At least 10 GB of RAM and 40 HDD/SSD).2</li>  
+  <li>Both of the first machine and the second machine will run these ecosystems (HDFS, YARN, Mapreduce, Hive, HBase and Sqoop).</li>
+  <li>The third server is running a database engine, in our example for today it's gonna be PostgreSql 10 (At least 6 GB of RAM and 20 HDD/SSD)</li>
 </ul>
-<h3></h3> 
 
-<div>
-<ul>
-<li>The first one is holding Namenode (At least 12 GB of RAM and 40 HDD/SSD).</li>
-<li>The second one is hodling the Datanode1 (Is Slave1), (At least 10 GB of RAM and 40 HDD/SSD).</li>
-<li>Both of the first server and second server will run these ecosystems (HDFS, YARN, Mapreduce, Hive, HBase and Sqoop).</li>
-<li>The third server is running a database engine, in our example for today it's gonna be PostgreSql 10 (At least 6 GB of RAM and 20 HDD/SSD)</li>
-
-</ul>
-  </div>
-
-<h3>To install Hadoop, follow this link</h3>
+<h4>To install Hadoop, follow this link</h4>
 <a href="">( https://...)<a> 
 <p>Now by installing hadoop, both of server one and server two are ready with all components including Sqoop (which is our core subject in this project).</p>
 
 <p>Now lets jump to server 3 (Database server)</p>
 <p>The database is PostgreSQL 10 (you can choose any ver you want, and so you can any other DB type such as mysql and sql server</p>
 
-To install PostgreSQL follow these commands
-
+<h4>Installing PostgreSQL DB engine</h4>
 <p> Warning : you have to ensure that your server in free from any pre-installation PostgreSQL, if you have a prevoius installation,
 the old version must un-install (completely) from the system. </p>
 
@@ -83,13 +73,16 @@ $ sudo -u postgres psql -U postgres (master user)
 <p>Cool, you are in
 to exit press \q</p>
 
+<h4>Download a database sample</h4>
 <p>Now lets download and extract the database sample to PostgreSQL 10
 We will download the desired file into a pre-created directory using wget command
 lets first create the directory:</p>
+
 <pre><code>
 $ mkdir /etc/downloads 
 </code></pre>
 <p>Navigate to this new directory</p>
+
 <pre><code>
 $ cd /etc/downloads
 </code></pre>
@@ -99,6 +92,7 @@ Navigate to this site to download the sample</p>
 <pre><code>
 $ wget -c https://sp.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip 
 </code></pre>
+
 <p>If the command is not found, then install wget packege</p>
 <pre><code>
 $ yum -y install wget
@@ -126,6 +120,7 @@ $ psql dvdrental root
 
 <p>Now the database work is done, but still we need to make the postgresql server discovorable from the server thats hosting Sqoop service, in our
 example its Slave1 (the second server)</p>
+## Setup the DB configuration to accept remote connection
 
 <p>In the database server we need to open it for all connections (its not recomended for the production manner)</p> 
 <p>In the database server, paste this command to open pg_hba.conf file in order to allow some access permissions</p>
