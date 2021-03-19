@@ -150,5 +150,6 @@ vim /var/lib/pgsql/10/data/pg_hba.conf
    <pre><code>
    sqoop import --connect jdbc:postgresql://"Database server IP"/dvdrental --username root --password "the password" --table actor -m 1
     </code></pre>
-
-## Done
+<p>Now all the structured data must be moved to HDFS in as one sheet due to "-m1" referes to a one MapReduce job only</p>
+ 
+ Done...!!
