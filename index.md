@@ -11,7 +11,8 @@
 </ul>
 
 <h4>To install Hadoop, follow this link</h4>
-<a href="">https://mbmasadeh.github.io/HDPMultiNodeHadoopCluster</a> 
+<p>Copy and paste it in your browser</p>
+<a href="">https://mbmasadeh.github.io/HDPMultiNodeHadoopCluster</a>
 <p>Now by installing hadoop, both of server one and server two are ready with all components including Sqoop (which is our core subject in this project).</p>
 
 <p>Now lets jump to server 3 (Database server)</p>
